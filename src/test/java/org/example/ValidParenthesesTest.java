@@ -13,9 +13,20 @@ class ValidParenthesesTest {
     }
 
     //verifies that empty strings are invalid
+    //if error is thrown, test case passes
     @Test
     public void TestIsValid2(){
         ValidParentheses vp = new ValidParentheses();
         assertThrows(IllegalArgumentException.class, () -> {vp.isValid("");});
+    }
+
+    @Test
+    public void TestIsValid3(){
+        ValidParentheses vp = new ValidParentheses();
+        //long input?
+        assertFalse(vp.isValid("(({({({({({({(({({({({({({({})})})})}))})"));
+        assertTrue(vp.isValid("((((({({})})))))"));
+        //checking when only a right brace is given
+        assertFalse(vp.isValid("]"));
     }
 }
