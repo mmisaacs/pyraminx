@@ -106,11 +106,13 @@ public class PyramidRubiksCube {
         for (Face face : faces) {
             Color[] tiles = face.getTiles();
 
+            //counts tile in face according to color
             for (Color tile : tiles) {
                 colorCount.put(tile, colorCount.get(tile) + 1);
             }
         }
 
+        // if any of the color values don't equal 9, it returns false
         for (Color color : Color.values()) {
             if (colorCount.get(color) != 9) {
                 return false;
